@@ -17,9 +17,11 @@ const Header2 = () => {
                 />
             </div>
             <div className="hidden md:flex gap-x-16 text-lg font-avenir relative">
+            <Link to="/about">
     <span className="flex items-center gap-1 cursor-pointer">
         About Us
     </span>
+    </Link>
     <Link to="/services">
         <span>Services</span>
     </Link>
