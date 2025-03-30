@@ -26,16 +26,18 @@ const InnovationPioneers = () => {
                 <p className="text-sm text-customPurple tracking-[2px]">
                     INNOVATION PIONEERS
                 </p>
-                <h2 className="text-3xl font-semibold mt-2 text-customGray py-2">
+                <h2 className="text-2xl md:text-3xl font-semibold mt-2 text-customGray py-2">
                     Our <span className="text-white">expert team</span> at the
-                    <span className="inline-block"> forefront</span> of <br />
+                    <span className="inline-block"> forefront</span> <br />
                     <span className="text-customGray">
                         cutting-edge solutions
                     </span>
                 </h2>
-                <div className="flex justify-center gap-14 mt-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12">
                     {teamMembers.map((member, index) => (
-                        <div key={index} className="relative w-[70%]">
+                        <div
+                            key={index}
+                            className="relative w-full max-w-[280px] mx-auto">
                             <img
                                 src={member.image}
                                 alt={member.name}

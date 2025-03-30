@@ -36,53 +36,66 @@ const blogs = [
 ];
 
 const BlogSection = () => {
-    const [offset, setOffset] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const imageWidth = 370;
-    const imagesPerRow = 3;
-    const maxOffset = -((blogs.length - imagesPerRow) * imageWidth);
+    const imagesPerRow = window.innerWidth < 768 ? 1 : 3;
+    const maxIndex = blogs.length - imagesPerRow;
 
     const handleNext = () => {
-        if (offset > maxOffset) {
-            setOffset(offset - imageWidth * imagesPerRow);
+        if (currentIndex < maxIndex) {
+            setCurrentIndex(currentIndex + 1);
         }
     };
 
     const handlePrev = () => {
-        if (offset < 0) {
-            setOffset(offset + imageWidth * imagesPerRow);
+        if (currentIndex > 0) {
+            setCurrentIndex(currentIndex - 1);
         }
+    };
+
+    const handleDotClick = (index) => {
+        setCurrentIndex(index);
     };
 
     return (
         <section className="text-white py-16 text-center relative">
             <div className="relative w-[85%] mx-auto">
                 <p className="text-sm text-customPurple tracking-[2px]">BLOG</p>
-
-                <div className="relative flex justify-center">
-                    <h2 className="text-3xl font-semibold mt-2 text-customGray py-3 text-center">
-                        Explore insights through our <br />
-                        <span className="text-white">
-                            knowledge-share blogs
-                        </span>
-                    </h2>
-                    <div className="absolute top-1/2 right-8 flex space-x-4 transform -translate-y-1/2">
-                        <button
-                            onClick={handlePrev}
-                            className="bg-gray-700 text-white rounded-full p-3 hover:bg-gray-600">
-                            <FaArrowLeft />
-                        </button>
-                        <button
-                            onClick={handleNext}
-                            className="bg-gray-700 text-white rounded-full p-3 hover:bg-gray-600">
-                            <FaArrowRight />
-                        </button>
-                    </div>
-                </div>
+                <h2 className="text-2xl md:text-3xl font-semibold mt-2 text-customGray py-3">
+                    Explore insights through our <br />
+                    <span className="text-white">knowledge-share blogs</span>
+                </h2>
+            </div>
+            <div className="hidden md:flex absolute top-1/2 left-4 right-4 justify-between transform -translate-y-1/2">
+                <button
+                    onClick={handlePrev}
+                    className={`bg-gray-700 text-white rounded-full p-3 hover:bg-gray-600 ${
+                        currentIndex === 0
+                            ? "opacity-50 cursor-not-allowed"
+                            : ""
+                    }`}
+                    disabled={currentIndex === 0}>
+                    <FaArrowLeft />
+                </button>
+                <button
+                    onClick={handleNext}
+                    className={`bg-gray-700 text-white rounded-full p-3 hover:bg-gray-600 ${
+                        currentIndex >= maxIndex
+                            ? "opacity-50 cursor-not-allowed"
+                            : ""
+                    }`}
+                    disabled={currentIndex >= maxIndex}>
+                    <FaArrowRight />
+                </button>
             </div>
             <div className="overflow-hidden w-[82%] mx-auto mt-8">
                 <div
                     className="flex gap-8 transition-transform duration-300"
-                    style={{ transform: `translateX(${offset}px)` }}>
+                    style={{
+                        transform: `translateX(${
+                            -currentIndex * imageWidth
+                        }px)`,
+                    }}>
                     {blogs.map((blog, index) => (
                         <div
                             key={index}
@@ -105,6 +118,17 @@ const BlogSection = () => {
                         </div>
                     ))}
                 </div>
+            </div>
+            <div className="flex md:hidden justify-center space-x-2 mt-4">
+                {blogs.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => handleDotClick(index)}
+                        className={`w-3 h-3 rounded-full ${
+                            index === currentIndex ? "bg-white" : "bg-gray-400"
+                        }`}
+                    />
+                ))}
             </div>
         </section>
     );

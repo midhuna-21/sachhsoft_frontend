@@ -24,8 +24,8 @@ const OurTestimonials = () => {
 
     const containerWidth = 400;
     const initialOffset = 100;
-
     const [offset, setOffset] = useState(initialOffset);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const handleLeftClick = () => {
         if (
@@ -33,13 +33,22 @@ const OurTestimonials = () => {
             -((testimonials.length - 1) * containerWidth - initialOffset)
         ) {
             setOffset(offset - containerWidth);
+            setCurrentIndex((prev) =>
+                Math.min(prev + 1, testimonials.length - 1)
+            );
         }
     };
 
     const handleRightClick = () => {
         if (offset < initialOffset) {
             setOffset(offset + containerWidth);
+            setCurrentIndex((prev) => Math.max(prev - 1, 0));
         }
+    };
+
+    const handleDotClick = (index) => {
+        setOffset(initialOffset - index * containerWidth);
+        setCurrentIndex(index);
     };
 
     return (
@@ -49,12 +58,12 @@ const OurTestimonials = () => {
                     <p className="text-sm text-customPurple tracking-[2px] py-1">
                         TESTIMONIALS
                     </p>
-                    <h2 className="text-3xl font-bold">
+                    <h2 className="text-2xl md:text-3xl font-bold">
                         Hear from our{" "}
                         <span className="text-white">valued partners</span>
                     </h2>
                 </div>
-                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+                <div className="hidden md:flex absolute right-0 top-1/2 transform -translate-y-1/2 space-x-2">
                     <button
                         onClick={handleLeftClick}
                         className={`w-10 h-10 rounded-full flex items-center justify-center transition ${
@@ -87,8 +96,7 @@ const OurTestimonials = () => {
                     </button>
                 </div>
             </div>
-
-            <div className="w-full mt-8 overflow-hidden">
+            <div className=" mt-8 overflow-hidden">
                 <div
                     className="ml-8 flex gap-8 transition-transform duration-300"
                     style={{ transform: `translateX(${offset}px)` }}>
@@ -120,6 +128,17 @@ const OurTestimonials = () => {
                         </div>
                     ))}
                 </div>
+            </div>
+            <div className="flex md:hidden space-x-2 mt-4">
+                {testimonials.map((_, index) => (
+                    <button
+                        key={index}
+                        className={`w-3 h-3 rounded-full ${
+                            index === currentIndex ? "bg-white" : "bg-gray-400"
+                        }`}
+                        onClick={() => handleDotClick(index)}
+                    />
+                ))}
             </div>
         </section>
     );

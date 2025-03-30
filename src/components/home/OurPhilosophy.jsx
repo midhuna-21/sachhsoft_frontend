@@ -23,29 +23,28 @@ const AboutUsHome = () => {
         },
     ];
     return (
-        <section className="text-center py-16 mt-12">
-            <div>
+        <section className="py-16 mt-12 px-6 md:px-12 w-full">
+            <div className="text-center max-w-[900px] mx-auto">
                 <p className="text-sm text-customPurple tracking-[2px]">
                     OUR PHILOSOPHY
                 </p>
-                <h2 className="text-3xl font-semibold mt-2 text-customGray">
+                <h2 className="text-2xl md:text-3xl font-semibold mt-2 text-customGray">
                     Your dreams, our{" "}
                     <span className="text-white">creations!</span>
                 </h2>
-                <p className="text-lg text-customPurple mt-4">
-                    We're all about results - bridging the business-tech gap for{" "}
+                <p className="text-sm md:text-md lg:text-lg text-customPurple mt-4">
+                    We're all about results - bridging the business-tech gap{" "}
                     <br />
-                    <span className="text-customPurple font-medium">
+                    <span className="font-medium">
                         efficient profitability.
                     </span>
                 </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12 p-4 max-w-[1150px] mx-auto">
+            <div className="flex flex-col items-center sm:grid sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 mt-12 max-w-[1150px] mx-auto">
                 {philosophyData.map((item, index) => (
                     <div
                         key={index}
-                        className="flex items-start text-left gap-4 w-full">
+                        className="flex items-start gap-4 max-w-sm">
                         <div className="flex flex-col w-full">
                             <i className="text-mediumPurple text-4xl">
                                 {item.icon}
@@ -53,16 +52,18 @@ const AboutUsHome = () => {
                             <h3 className="text-xl font-bold text-customGray py-3">
                                 {item.title}
                             </h3>
-                            <p className="text-sm text-customPurple text-left w-full leading-7">
+                            <p className="text-sm text-customPurple leading-7">
                                 {item.description}
                             </p>
                         </div>
                     </div>
                 ))}
             </div>
-            <button className="mt-12 px-6 py-3 bg-purple-600 text-white rounded-3xl">
-                About us →
-            </button>
+            <div className="text-center mt-12">
+                <button className="px-6 py-3 bg-purple-600 text-white rounded-3xl">
+                    About us →
+                </button>
+            </div>
         </section>
     );
 };

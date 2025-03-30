@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import shopify from "../../assets/shopify.png";
 import wordpress from "../../assets/wordpress.png";
 import aws from "../../assets/aws.png";
@@ -9,11 +9,26 @@ const tools = [
     { name: "AWS", logo: aws },
     { name: "React", logo: aws },
     { name: "Node.js", logo: wordpress },
+    { name: "Vue.js", logo: shopify },
+    { name: "WordPress", logo: wordpress },
 ];
 
 const TechnicalToolset = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const visibleLogos = 4;
+    const [visibleLogos, setVisibleLogos] = useState(6);
+
+    useEffect(() => {
+        const updateVisibleLogos = () => {
+            if (window.innerWidth < 640) {
+                setVisibleLogos(1);
+            } else {
+                setVisibleLogos(6);
+            }
+        };
+        updateVisibleLogos();
+        window.addEventListener("resize", updateVisibleLogos);
+        return () => window.removeEventListener("resize", updateVisibleLogos);
+    }, []);
 
     const handleNext = () => {
         if (currentIndex + visibleLogos < tools.length) {
@@ -37,11 +52,11 @@ const TechnicalToolset = () => {
                     We Assure Quality Development
                 </h2>
             </div>
-            <div className="mt-9 border-t border-gray-500 w-full relative"></div>
-            <div className="relative mt-5 w-full">
+            <div className="mt-9 border-t border-gray-500 w-full"></div>
+            <div className="relative mt-5 flex items-center justify-center">
                 <button
                     onClick={handlePrev}
-                    className={`absolute left-0 top-1/2 transform -translate-y-1/2 text-3xl font-sans ${
+                    className={`text-3xl font-sans absolute left-0 transform -translate-y-1/2 ${
                         currentIndex === 0
                             ? "opacity-50 cursor-not-allowed text-gray-500"
                             : "text-white"
@@ -49,13 +64,13 @@ const TechnicalToolset = () => {
                     disabled={currentIndex === 0}>
                     {"<"}
                 </button>
-                <div className="grid grid-cols-4 gap-10 w-full">
+                <div className="flex justify-center items-center w-full">
                     {tools
                         .slice(currentIndex, currentIndex + visibleLogos)
                         .map((tool, index) => (
                             <div
                                 key={index}
-                                className="flex items-center justify-center">
+                                className="flex items-center justify-center px-4">
                                 <img
                                     src={tool.logo}
                                     alt={tool.name}
@@ -69,7 +84,7 @@ const TechnicalToolset = () => {
                 </div>
                 <button
                     onClick={handleNext}
-                    className={`absolute right-0 top-1/2 transform -translate-y-1/2 text-3xl font-sans ${
+                    className={`text-3xl font-sans absolute right-0 transform -translate-y-1/2 ${
                         currentIndex + visibleLogos >= tools.length
                             ? "opacity-50 cursor-not-allowed text-gray-500"
                             : "text-white"

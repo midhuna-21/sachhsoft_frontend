@@ -1,4 +1,5 @@
 import React from "react";
+import working from "../../assets/working.png";
 
 const MeetTheTeam = () => {
     return (
@@ -15,7 +16,7 @@ const MeetTheTeam = () => {
             </div>
             <div className="mt-8">
                 <img
-                    src="/your-team-banner.jpg"
+                    src={working}
                     alt="Team"
                     className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
                 />

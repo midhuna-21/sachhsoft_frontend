@@ -14,7 +14,7 @@ const Hiring = () => {
         <section className="text-white text-center py-16">
             <p className="text-sm text-customPurple tracking-[2px]">HIRING</p>
             <h2 className="text-3xl font-semibold mt-2 text-customGray">
-                Think you’ve got what it takes? <br /> We’re on the hunt for new
+                Think you've got what it takes? <br /> We're on the hunt for new
                 talent
             </h2>
             <div className="mt-8 space-y-6 max-w-[1190px] mx-auto p-3">

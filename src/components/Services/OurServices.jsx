@@ -46,13 +46,13 @@ const OurServices = () => {
             <p className="text-sm text-customPurple  text-center tracking-[2px]">
                 OUR SERVICES
             </p>
-            <h2 className="text-3xl font-semibold text-center mt-2 text-customGray">
+            <h2 className="text-2xl md:text-3xl font-semibold text-center mt-2 text-customGray">
                 Harnessing talent in every step
             </h2>
             <p className="text-center text-softLavender mt-4 max-w-2xl mx-auto">
                 We infuse every project with top-notch expertise and creativity.
                 <br />
-                Let’s achieve greatness together!
+                Let's achieve greatness together!
             </p>
 
             <div className="mt-6 space-y-6 py-12">

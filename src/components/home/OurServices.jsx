@@ -48,9 +48,9 @@ const OurServices = () => {
             <p className="text-sm text-customPurple tracking-[2px]">
                 OUR SERVICES
             </p>
-            <h2 className="text-3xl font-semibold mt-2 text-white">
+            <h2 className="text-2xl md:text-3xl font-semibold mt-2 text-white">
                 Tech powered solutions{" "}
-                <span className="text-customGray">for empowering</span> <br />
+                <span className="text-customGray">for empowering</span><br/>
                 <span className="text-customGray">your success</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">

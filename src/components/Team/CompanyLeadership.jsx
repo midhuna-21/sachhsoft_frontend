@@ -39,18 +39,19 @@ const CompanyLeadership = () => {
     const emptySlots = (4 - (currentMembers.length % 4)) % 4;
 
     return (
-        <section className="px-8 md:px-16 lg:px-32 py-12 text-center">
-            <h2 className="text-3xl font-bold leading-tight text-customGray">
-                Our rockstar team is leading the charge <br /> with the coolest
-                solutions around!
+        <section className="px-4 sm:px-8 md:px-16 lg:px-32 py-12 text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold leading-snug text-customGray">
+                Our rockstar team is leading the charge{" "}
+                <br className="hidden md:block" />
+                with the coolest solutions around!
             </h2>
-            <div className="mt-6 flex justify-center space-x-6">
+            <div className="mt-6 flex flex-wrap justify-center gap-4 sm:gap-6">
                 {Object.keys(teamData).map((tab) => (
                     <button
                         key={tab}
-                        className={`text-lg font-semibold px-4 py-2 transition ${
+                        className={`text-base sm:text-lg font-semibold px-3 sm:px-4 py-2 rounded-md transition ${
                             activeTab === tab
-                                ? "text-purple-600"
+                                ? "text-purple-600 "
                                 : "text-gray-500"
                         }`}
                         onClick={() => setActiveTab(tab)}>
@@ -58,9 +59,11 @@ const CompanyLeadership = () => {
                     </button>
                 ))}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-12 justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 justify-center">
                 {currentMembers.map((member, index) => (
-                    <div key={index} className="relative w-[270px] h-[300px]">
+                    <div
+                        key={index}
+                        className="relative w-full max-w-[270px] mx-auto sm:mx-0">
                         <img
                             src={member.img}
                             alt={member.name}
@@ -79,7 +82,7 @@ const CompanyLeadership = () => {
                 {Array.from({ length: emptySlots }).map((_, index) => (
                     <div
                         key={`empty-${index}`}
-                        className="w-[220px] h-[300px]"></div>
+                        className="w-full h-[300px]"></div>
                 ))}
             </div>
         </section>

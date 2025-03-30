@@ -6,34 +6,14 @@ import Team from "../pages/Team";
 
 const UserRouter = () => {
     return (
-       <>
+        <div className="w-full overflow-hidden">
         <Routes>
-            <Route
-                path="/"
-                element={
-                        <Home />
-                }
-            />
-               <Route
-                path="/about"
-                element={
-                        <About />
-                }
-            />
-            <Route
-                path="/services"
-                element={
-                        <Services />
-                }
-            />
-           <Route
-                path="/team"
-                element={
-                        <Team />
-                }
-            />
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/team" element={<Team />} />
         </Routes>
-        </>
+    </div>
     );
 };
 export default UserRouter;

@@ -28,7 +28,7 @@ const OurApproach = () => {
             <p className="text-sm text-customPurple tracking-[2px]">
                 OUR APPROACH
             </p>
-            <h2 className="text-3xl font-semibold mt-2 text-customGray">
+            <h2 className="text-2xl md:text-3xl font-semibold mt-2 text-customGray">
                 Proudly embracing every challenge
             </h2>
             <p className="text-softLavender mt-4 max-w-2xl mx-auto">
@@ -36,11 +36,11 @@ const OurApproach = () => {
                 relationships that are memorable.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 justify-center ml-20">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 mx-auto">
                 {approachData.map((item, index) => (
                     <div
                         key={index}
-                        className="rounded-lg p-6 w-[350px] h-[250px] flex flex-col items-start">
+                        className="rounded-lg p-6 w-full max-w-[350px] h-[250px] flex flex-col items-start mx-auto">
                         <i className="text-shadownPurple text-2xl">
                             {item.icon}
                         </i>
