@@ -4,7 +4,7 @@ import About from "../pages/About";
 import Services from "../pages/Services";
 import Team from "../pages/Team";
 
-const UserRouter = () => {
+const AppRouter = () => {
     return (
         <div className="w-full overflow-hidden">
         <Routes>
@@ -16,4 +16,4 @@ const UserRouter = () => {
     </div>
     );
 };
-export default UserRouter;
+export default AppRouter;
