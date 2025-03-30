@@ -21,7 +21,7 @@ const Footer = () => {
                 </div>
                 <div className="w-full lg:w-1/2 bg-white text-gray-900 p-6 rounded-lg shadow-lg">
                     <p className="text-sm text-[#030114] ml-3">
-                        I’m interested in...
+                        I'm interested in...
                     </p>
                     <div className="flex flex-wrap gap-3 mt-2 justify-center lg:justify-start">
                         {[
@@ -78,7 +78,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="text-center ml-0 md:ml-14 lg:text-left  text-sm text-gray-300 space-y-1">
+            <div className="text-center ml-0 md:ml-20 lg:text-left  text-sm text-gray-300 space-y-1">
                 <p>Chicago, USA</p>
                 <p>+1 (805) 427-3883</p>
                 <p>ceo@sachhsoft.com</p>
