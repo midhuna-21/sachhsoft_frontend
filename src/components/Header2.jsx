@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import SachhsoftLogo from "../assets/sachhsoftlogo.png";
 
 const Header2 = () => {
@@ -16,17 +16,18 @@ const Header2 = () => {
                     className="h-10 w-auto filter invert"
                 />
             </div>
-            <div className="hidden md:flex gap-x-12 text-lg font-avenir flex-1 relative">
-                <span className="flex items-center gap-1 cursor-pointer">
-                    About Us
-                </span>
-                <Link to="/services">
-                    <span>Services</span>
-                </Link>
-                <Link to="/team">
-                    <span>Team</span>
-                </Link>
-            </div>
+            <div className="hidden md:flex gap-x-16 text-lg font-avenir relative">
+    <span className="flex items-center gap-1 cursor-pointer">
+        About Us
+    </span>
+    <Link to="/services">
+        <span>Services</span>
+    </Link>
+    <Link to="/team">
+        <span>Team</span>
+    </Link>
+</div>
+
             <div className="hidden md:flex gap-x-12 text-lg items-center flex-1 justify-end pr-10">
                 <button className="bg-purple-600 px-4 py-2 rounded-3xl text-white">
                     Let's talk <span className="ml-4">→</span>
@@ -36,7 +37,7 @@ const Header2 = () => {
                 <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                     className="text-white text-2xl">
-                    {isMenuOpen ? <FaTimes /> : <FaBars />}
+                    {isMenuOpen ? <FaBars /> : <FaBars />}
                 </button>
             </div>
             {isMenuOpen && (

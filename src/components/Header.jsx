@@ -104,7 +104,7 @@ const Header = () => {
                     <Link to="/services" onClick={() => setIsMenuOpen(false)}>
                         Services
                     </Link>
-                    <Link to="/blogs" onClick={() => setIsMenuOpen(false)}>
+                    <Link to="#" onClick={() => setIsMenuOpen(false)}>
                         Blogs
                     </Link>
                     <Link to="/careers" onClick={() => setIsMenuOpen(false)}>
